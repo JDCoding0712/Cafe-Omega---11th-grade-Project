@@ -1,0 +1,602 @@
+
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#251b17" />
+
+  <title>Café-Omega | Cafetería</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E☕%3C/text%3E%3C/svg%3E">
+
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="style.css?v=omega5">
+
+  <!-- Estilos específicos del video principal -->
+  <style>
+
+    /* ENCABEZADO CON VIDEO DE FONDO */
+
+    section.hero.omega-hero {
+      position: relative !important;
+      isolation: isolate !important;
+      display: flex !important;
+      align-items: center !important;
+
+      width: 100% !important;
+      height: 420px !important;
+      min-height: 420px !important;
+      max-height: 420px !important;
+
+      box-sizing: border-box !important;
+      padding: 45px !important;
+      overflow: hidden !important;
+
+      background: #251b17 !important;
+      background-image: none !important;
+    }
+
+    /* Contenedor del video */
+    .omega-hero .hero-background {
+      position: absolute !important;
+      inset: 0 !important;
+
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+
+      overflow: hidden !important;
+      z-index: 0 !important;
+      pointer-events: none;
+    }
+
+    /* Video ajustado al encabezado */
+    .omega-hero .hero-background video {
+      position: absolute !important;
+      inset: 0 !important;
+
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+
+      min-width: 0 !important;
+      min-height: 0 !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+
+      margin: 0 !important;
+      padding: 0 !important;
+
+      object-fit: cover !important;
+      object-position: center !important;
+
+      z-index: 0 !important;
+
+      opacity: 1;
+      transition: opacity .55s ease;
+    }
+
+    .omega-hero #heroVideo.video-changing {
+      opacity: 0;
+    }
+
+    /* Capa oscura sobre el video */
+    .omega-hero .hero-overlay {
+      position: absolute !important;
+      inset: 0 !important;
+
+      width: 100% !important;
+      height: 100% !important;
+
+      background: linear-gradient(
+        90deg,
+        rgba(25, 14, 8, .85),
+        rgba(25, 14, 8, .55),
+        rgba(25, 14, 8, .35)
+      ) !important;
+
+      z-index: 1 !important;
+      pointer-events: none;
+    }
+
+    /* Texto principal sobre el video */
+    .omega-hero .hero-content {
+      position: relative !important;
+      z-index: 2 !important;
+
+      width: min(100%, 650px);
+      max-width: 650px;
+
+      margin: 0 !important;
+      padding: 0 !important;
+
+      color: #fff9f1 !important;
+    }
+
+    .omega-hero .hero-content .eyebrow {
+      color: #f0bf86 !important;
+    }
+
+    .omega-hero .hero-content h1 {
+      color: #fff9f1 !important;
+      font-size: clamp(30px, 4vw, 54px);
+      line-height: 1.15;
+      margin: 12px 0 16px;
+    }
+
+    .omega-hero .hero-content p {
+      color: #f5e7da !important;
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 500px;
+    }
+
+    .omega-hero .hero-content a {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 12px 22px;
+
+      border-radius: 12px;
+      background: #8b5e3c;
+
+      color: white !important;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .omega-hero .hero-content a:hover {
+      background: #a8754c;
+    }
+
+    /* Botones Login, Register y Perfil */
+    .auth-nav {
+      font-weight: 700 !important;
+      border: 2px solid #8b5e3c !important;
+    }
+
+    /* Ocultar elementos inactivos */
+    [hidden] {
+      display: none !important;
+    }
+
+    /* Ajustes para celulares */
+    @media (max-width: 600px) {
+
+      section.hero.omega-hero {
+        height: 380px !important;
+        min-height: 380px !important;
+        max-height: 380px !important;
+        padding: 24px !important;
+      }
+
+      .omega-hero .hero-content h1 {
+        font-size: 32px;
+      }
+    }
+
+    /* Accesibilidad */
+    @media (prefers-reduced-motion: reduce) {
+      .omega-hero #heroVideo {
+        display: none !important;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ========== NAVEGACIÓN ========== -->
+
+  <header>
+    <nav>
+
+      <div class="brand">
+        Café-<span>Omega.</span>
+      </div>
+
+      <div class="nav-right">
+
+        <span class="tagline">
+          Hecho con calma y amor, servido con cariño y pasión.
+        </span>
+
+        <!-- Iniciar sesión -->
+        <button
+          id="loginNav"
+          class="auth-nav"
+          type="button"
+        >
+          🔐 Iniciar sesión
+        </button>
+
+        <!-- Registrarse -->
+        <button
+          id="registerNav"
+          class="auth-nav"
+          type="button"
+        >
+          🔐 Registrarse
+        </button>
+
+        <!-- Perfil -->
+        <button
+          id="profileNav"
+          class="auth-nav"
+          type="button"
+          hidden
+        >
+          👤 Mi perfil
+        </button>
+
+        <!-- Carrito -->
+        <button
+          class="cart-nav"
+          id="cartNav"
+          type="button"
+        >
+          🛒 Mi pedido
+          <span class="badge" id="cartCount">0</span>
+        </button>
+
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- ========== CONTENIDO PRINCIPAL ========== -->
+
+  <main>
+
+    <!-- PRESENTACIÓN CON VIDEO -->
+
+    <section class="hero omega-hero">
+
+      <!-- Video de fondo -->
+      <div class="hero-background">
+
+        <video
+          id="heroVideo"
+          class="hero-video"
+          autoplay
+          muted
+          playsinline
+          preload="metadata"
+          aria-hidden="true"
+        >
+          <source
+            src="/cafeteria/videos/cafe1.mp4"
+            type="video/mp4"
+          >
+        </video>
+
+      </div>
+
+      <!-- Capa oscura -->
+      <div class="hero-overlay"></div>
+
+      <!-- Texto principal -->
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          Tu descanso favorito!
+        </div>
+
+        <h1>
+          Un día bendecido empieza con buen café.
+        </h1>
+
+        <p>
+          Deléitate con nuestros cafés, bebidas y bocados
+          disponibles.
+        </p>
+
+        <a href="#menu">
+          Explorar el menú
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- ========== MENÚ ========== -->
+
+    <div class="content-head" id="menu">
+
+      <div>
+        <h2>Nuestro menú</h2>
+        <p>Elige tus favoritos y arma tu pedido.</p>
+      </div>
+
+    </div>
+
+    <!-- Productos y carrito -->
+    <div class="layout">
+
+      <!-- Catálogo -->
+      <section aria-label="Productos disponibles">
+
+        <div
+          class="filters"
+          id="filters"
+        ></div>
+
+        <div
+          class="products"
+          id="products"
+        ></div>
+
+      </section>
+
+      <!-- Carrito de compras -->
+      <aside class="sidebar" id="cart">
+
+        <h2>Tu pedido ☕</h2>
+
+        <div class="sub">
+          Revisa lo que agregaste al carrito.
+        </div>
+
+        <div
+          id="cartList"
+          class="cart-list"
+        ></div>
+
+        <div class="total">
+          <span>Total</span>
+          <span id="total">RD$ 0</span>
+        </div>
+
+        <button
+          class="checkout"
+          id="checkout"
+          type="button"
+          disabled
+        >
+          Confirmar pedido
+        </button>
+
+        <div class="note">
+          Versión de prueba: no se cobra ningún pago
+          ni se envía ningún pedido real.
+        </div>
+
+        <div
+          id="notice"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- ========== LOGIN Y REGISTRO ========== -->
+
+  <dialog
+    id="authDialog"
+    class="auth-dialog"
+    aria-labelledby="authTitle"
+  >
+
+    <!-- Encabezado -->
+    <div class="auth-header">
+
+      <h2 id="authTitle">
+        Bienvenido a Café-Omega ☕
+      </h2>
+
+      <button
+        id="closeAuth"
+        type="button"
+        aria-label="Cerrar ventana"
+      >
+        ✕
+      </button>
+
+    </div>
+
+    <!-- Pestañas -->
+    <div class="auth-tabs">
+
+      <button
+        id="showLogin"
+        class="active"
+        type="button"
+      >
+        Iniciar sesión:
+      </button>
+
+      <button
+        id="showRegister"
+        type="button"
+      >
+        Registrarse:
+      </button>
+
+    </div>
+
+    <!-- ========== FORMULARIO LOGIN ========== -->
+
+    <form id="loginForm" method="post">
+
+      <h3>Iniciar sesión</h3>
+
+      <label for="loginEmail">
+        Correo electrónico:
+      </label>
+
+      <input
+        type="email"
+        id="loginEmail"
+        name="email"
+        autocomplete="email"
+        placeholder="tu@correo.com"
+        required
+      >
+
+      <label for="loginPassword">
+        Contraseña:
+      </label>
+
+      <input
+        type="password"
+        id="loginPassword"
+        name="password"
+        autocomplete="current-password"
+        placeholder="Tu contraseña"
+        required
+      >
+
+      <button type="submit">
+        Entrar a mi cuenta
+      </button>
+
+    </form>
+
+    <!-- ========== FORMULARIO REGISTRO ========== -->
+
+    <form id="registerForm" method="post" hidden>
+
+      <h3>Crear una cuenta</h3>
+
+      <label for="registerName">
+        Nombre completo:
+      </label>
+
+      <input
+        type="text"
+        id="registerName"
+        name="nombre"
+        minlength="2"
+        maxlength="100"
+        autocomplete="name"
+        placeholder="Tu nombre completo"
+        required
+      >
+
+      <label for="registerEmail">
+        Correo electrónico:
+      </label>
+
+      <input
+        type="email"
+        id="registerEmail"
+        name="email"
+        autocomplete="email"
+        placeholder="tu@correo.com"
+        required
+      >
+
+      <label for="registerPassword">
+        Contraseña:
+      </label>
+
+      <input
+        type="password"
+        id="registerPassword"
+        name="password"
+        minlength="8"
+        maxlength="128"
+        autocomplete="new-password"
+        placeholder="Mínimo 8 caracteres"
+        required
+      >
+
+      <button type="submit">
+        Crear mi cuenta
+      </button>
+
+    </form>
+
+    <!-- Mensajes -->
+    <p
+      id="authMessage"
+      role="status"
+      aria-live="polite"
+    ></p>
+
+  </dialog>
+
+  <!-- ========== PERFIL DEL CLIENTE ========== -->
+
+  <dialog
+    id="profileDialog"
+    class="profile-dialog"
+    aria-labelledby="profileTitle"
+  >
+
+    <button
+      type="button"
+      id="closeProfile"
+      class="profile-close"
+      aria-label="Cerrar perfil"
+    >
+      ✕
+    </button>
+
+    <div class="profile-avatar">
+      ☕
+    </div>
+
+    <h2 id="profileTitle">
+      Mi perfil
+    </h2>
+
+    <p class="profile-subtitle">
+      Bienvenido a tu rincón en Café-Omega.
+    </p>
+
+    <div class="profile-info">
+
+      <span>Nombre</span>
+
+      <strong id="profileName">
+        Cliente
+      </strong>
+
+    </div>
+
+    <div class="profile-info">
+
+      <span>Correo electrónico</span>
+
+      <strong id="profileEmail">
+        —
+      </strong>
+
+    </div>
+
+    <button
+      id="logoutBtn"
+      class="logout-btn"
+      type="button"
+    >
+      Cerrar sesión
+    </button>
+
+  </dialog>
+
+  <!-- ========== PIE DE PÁGINA ========== -->
+
+  <footer>
+
+    <span>
+      © WEELEC 2026 Café-Omega · Proyecto estudiantil.
+    </span>
+
+    <span>
+      Aplicación Full Stack primeriza.
+    </span>
+
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js?v=omega6"></script>
+
+</body>
+</html>

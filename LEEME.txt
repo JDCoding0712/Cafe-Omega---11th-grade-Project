@@ -1,0 +1,17 @@
+BRUMA CAFÉ — PRIMERA VERSIÓN
+
+1. Extrae el archivo ZIP.
+2. Abre la carpeta 'cafeteria_inicio'.
+3. Haz doble clic en 'index.html'.
+4. Se abrirá en tu navegador (Chrome, Edge u otro).
+5. Prueba los filtros del menú y el carrito de compras.
+
+NOTAS
+- No tienes que instalar nada para esta primera versión.
+- Es un prototipo frontend: todavía NO tiene backend ni base de datos.
+- Los productos y precios son de ejemplo en pesos dominicanos.
+- El carrito se conserva en ese navegador mediante localStorage.
+- Las fotografías se descargan de Internet; sin conexión pueden no verse.
+- El botón 'Confirmar pedido' es solo una simulación, no hace cobros reales.
+
+En los siguientes pasos iremos agregando funciones y, más adelante, un backend y una base de datos.

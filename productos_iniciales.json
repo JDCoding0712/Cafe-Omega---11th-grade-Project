@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Cappuccino",
+    "category": "Cafés",
+    "price": 170,
+    "description": "Espresso suave con leche cremosa y espuma.",
+    "image": "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&fit=crop&w=800&q=85"
+  },
+  {
+    "id": 2,
+    "name": "Latte vainilla",
+    "category": "Cafés",
+    "price": 195,
+    "description": "Café con leche y un toque dulce de vainilla.",
+    "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=85"
+  },
+  {
+    "id": 3,
+    "name": "Chocolate frío",
+    "category": "Bebidas",
+    "price": 160,
+    "description": "Bebida fría de chocolate, cremosa y refrescante.",
+    "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=85"
+  },
+  {
+    "id": 4,
+    "name": "Limonada natural",
+    "category": "Bebidas",
+    "price": 110,
+    "description": "Limón recién exprimido con hielo.",
+    "image": "https://images.unsplash.com/photo-1513558161293-cdaf765edfd4?auto=format&fit=crop&w=800&q=85"
+  },
+  {
+    "id": 5,
+    "name": "Croissant",
+    "category": "Comidas",
+    "price": 135,
+    "description": "Hojaldre dorado, ligero y recién horneado.",
+    "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=85"
+  },
+  {
+    "id": 6,
+    "name": "Sándwich de pollo",
+    "category": "Comidas",
+    "price": 220,
+    "description": "Pan tostado, pollo, vegetales y salsa de la casa.",
+    "image": "https://images.unsplash.com/photo-1553909489-cd47e0ef937f?auto=format&fit=crop&w=800&q=85"
+  }
+]
