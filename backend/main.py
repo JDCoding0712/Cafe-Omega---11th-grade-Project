@@ -50,6 +50,18 @@ app.mount(
     name="cafe_videos"
 )
 
+# =====================================
+# IMÁGENES DE PRODUCTOS - CAFÉ-OMEGA
+# =====================================
+
+IMAGENES_DIR = Path(__file__).resolve().parent.parent / "imagenes"
+
+app.mount(
+    "/cafeteria/imagenes",
+    StaticFiles(directory=str(IMAGENES_DIR)),
+    name="cafe_imagenes"
+)
+
 
 
 @app.get("/")
