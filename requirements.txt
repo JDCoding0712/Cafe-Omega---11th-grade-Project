@@ -1,0 +1,8 @@
+
+fastapi
+uvicorn
+pydantic
+email-validator
+argon2-cffi
+PyJWT
+python-dotenv
