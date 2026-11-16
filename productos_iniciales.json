@@ -1,3 +1,4 @@
+
 [
   {
     "id": 1,
@@ -29,7 +30,7 @@
     "category": "Bebidas",
     "price": 110,
     "description": "Limón recién exprimido con hielo.",
-    "image": "https://images.unsplash.com/photo-1513558161293-cdaf765edfd4?auto=format&fit=crop&w=800&q=85"
+    "image": "/cafeteria/imagenes/limonada.jpg"
   },
   {
     "id": 5,
@@ -45,6 +46,6 @@
     "category": "Comidas",
     "price": 220,
     "description": "Pan tostado, pollo, vegetales y salsa de la casa.",
-    "image": "https://images.unsplash.com/photo-1553909489-cd47e0ef937f?auto=format&fit=crop&w=800&q=85"
+    "image": "/cafeteria/imagenes/sandwich.jpg"
   }
 ]
