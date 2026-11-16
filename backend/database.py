@@ -67,13 +67,17 @@ def crear_tablas():
         """)
 
 
+
+
 def guardar_productos(productos):
     with conectar() as conexion:
         for producto in productos:
             conexion.execute("""
-                INSERT OR IGNORE INTO productos
+                INSERT INTO productos
                 (id, name, category, price, description, image)
                 VALUES (?, ?, ?, ?, ?, ?)
+                ON CONFLICT(id) DO UPDATE SET
+                    image = excluded.image
             """, (
                 producto["id"],
                 producto["name"],
@@ -82,6 +86,8 @@ def guardar_productos(productos):
                 producto["description"],
                 producto["image"]
             ))
+
+
 
 
 def obtener_productos_db():
